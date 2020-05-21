@@ -116,7 +116,7 @@ def submit():
     db.execute("INSERT INTO reviews (username, title, rating, reviewing, isbn) VALUES (:username, :title, :rating, :reviewing, :isbn)",
                {"username": user, "title": booktitle, "rating": option, "reviewing": review, "isbn": isbn})
     db.commit()
-    return 'success <a href="search">search</a>'
+    return 'Review submitted successfully <a href="{{url_for("user/search")}}">search</a>'
 
 @app.route("/api/<isbn>", methods=["GET"])
 def api(isbn):
